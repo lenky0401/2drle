@@ -149,14 +149,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\1drle\rle.h" />
     <ClInclude Include="src\2drle\2drle.h" />
     <ClInclude Include="src\common.h" />
     <ClInclude Include="src\rwbmp\rw_bmp24.h" />
     <ClInclude Include="src\scroll\check_scroll.h" />
+    <ClInclude Include="src\testdata\data1.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\1drle\rle.c" />
     <ClCompile Include="src\2drle\2drle.c" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\rwbmp\rw_bmp24.c" />

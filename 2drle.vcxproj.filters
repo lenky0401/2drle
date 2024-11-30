@@ -22,6 +22,12 @@
     <Filter Include="源文件\scroll">
       <UniqueIdentifier>{0b0dcdf4-60e8-4b1b-90d0-9e494bac0c54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\1drle">
+      <UniqueIdentifier>{403cbd26-7e70-47e1-a601-be29ef31e6ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\testdata">
+      <UniqueIdentifier>{c6d08dbc-2471-4dee-bd76-99210d9e797c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -45,6 +51,12 @@
     <ClInclude Include="src\scroll\check_scroll.h">
       <Filter>源文件\scroll</Filter>
     </ClInclude>
+    <ClInclude Include="src\1drle\rle.h">
+      <Filter>源文件\1drle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\testdata\data1.h">
+      <Filter>源文件\testdata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -61,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="src\scroll\check_scroll.c">
       <Filter>源文件\scroll</Filter>
+    </ClCompile>
+    <ClCompile Include="src\1drle\rle.c">
+      <Filter>源文件\1drle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
