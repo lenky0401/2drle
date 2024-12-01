@@ -28,6 +28,9 @@
     <Filter Include="源文件\testdata">
       <UniqueIdentifier>{c6d08dbc-2471-4dee-bd76-99210d9e797c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\spacescan">
+      <UniqueIdentifier>{d55cbb47-cd87-4848-baa9-2e5e6ff6a369}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -57,6 +60,9 @@
     <ClInclude Include="src\testdata\data1.h">
       <Filter>源文件\testdata</Filter>
     </ClInclude>
+    <ClInclude Include="src\spacescan\spacescan.h">
+      <Filter>源文件\spacescan</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="src\1drle\rle.c">
       <Filter>源文件\1drle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\spacescan\spacescan.c">
+      <Filter>源文件\spacescan</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
