@@ -152,6 +152,7 @@
     <ClInclude Include="src\1drle\rle.h" />
     <ClInclude Include="src\2drle\2drle.h" />
     <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\lz\lz.h" />
     <ClInclude Include="src\rwbmp\rw_bmp24.h" />
     <ClInclude Include="src\scroll\check_scroll.h" />
     <ClInclude Include="src\spacescan\spacescan.h" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="src\1drle\rle.c" />
     <ClCompile Include="src\2drle\2drle.c" />
+    <ClCompile Include="src\lz\lz.c" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\rwbmp\rw_bmp24.c" />
     <ClCompile Include="src\scroll\check_scroll.c" />
