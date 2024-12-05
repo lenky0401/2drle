@@ -75,3 +75,14 @@ int lz77_encode_print(uint8_t *in_data, uint32_t in_data_len, uint8_t *out_data,
 
     return 0;
 }
+
+
+void lz77_test()
+{
+    uint8_t in_data[8] = { 'A', 'A', 'B', 'C', 'B', 'C', 'A', 'B', };
+    uint32_t in_data_len = 8;
+    uint8_t out_data[64];
+    uint32_t out_data_len = 64;
+
+    int r = lz77_encode_print(in_data, in_data_len, out_data, &out_data_len);
+}

@@ -7,6 +7,8 @@
 extern "C" {
 #endif //_cplusplus
 
+    void lz77_test();
+
     int lz77_encode_print(uint8_t *in_data, uint32_t in_data_len, uint8_t *out_data, uint32_t *out_data_len);
 
 #ifdef __cplusplus

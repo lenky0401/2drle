@@ -7,6 +7,8 @@
 extern "C" {
 #endif //_cplusplus
 
+    void morton_code_test();
+
     void morton_code_print(uint32_t a);
 
 #ifdef __cplusplus
