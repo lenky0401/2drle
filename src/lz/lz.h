@@ -1,5 +1,5 @@
-#ifndef _2DRLE_H_INCLUDED_
-#define _2DRLE_H_INCLUDED_
+#ifndef _LZ_H_INCLUDED_
+#define _LZ_H_INCLUDED_
 
 #include "../rwbmp/rw_bmp24.h"
 

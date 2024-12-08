@@ -12,14 +12,19 @@
 
 #include "lz/lz.h"
 
+#include "2drle/2drle.h"
+
 int main()
 {
+    morton_2drle_test();
+
+    return 0;
 
     lz77_test();
 
     Bmp24_Img_Info img;
     char *path = "testimg\\test2.bmp";
-    char *img_data = (char *)read_bitmap_24(&img, path);
+    char *img_data = (char *)read_bitmap_24(&img, path, FALSE);
     assert(img_data);
 
     

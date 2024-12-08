@@ -7,7 +7,9 @@
 extern "C" {
 #endif //_cplusplus
 
-int img_process(Bmp24_Img_Info *img_info, void *img_data, char *outpath);
+    void morton_2drle_test();
+
+    void morton_2drle_encode(Bmp24_Img_Info *img_info, void *img_data, char *outpath);
 
 #ifdef __cplusplus
 }

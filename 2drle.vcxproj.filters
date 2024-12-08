@@ -95,5 +95,8 @@
     <ClCompile Include="src\lz\lz.c">
       <Filter>源文件\lz</Filter>
     </ClCompile>
+    <ClCompile Include="src\2drle\2drle_test.c">
+      <Filter>源文件\2drle</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

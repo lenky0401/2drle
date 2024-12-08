@@ -1,5 +1,5 @@
-#ifndef _2DRLE_H_INCLUDED_
-#define _2DRLE_H_INCLUDED_
+#ifndef _RLE_H_INCLUDED_
+#define _RLE_H_INCLUDED_
 
 #include <stdint.h>
 

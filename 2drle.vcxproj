@@ -163,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="src\1drle\rle.c" />
     <ClCompile Include="src\2drle\2drle.c" />
+    <ClCompile Include="src\2drle\2drle_test.c" />
     <ClCompile Include="src\lz\lz.c" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\rwbmp\rw_bmp24.c" />

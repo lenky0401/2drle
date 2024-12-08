@@ -12,7 +12,7 @@ typedef struct {
 extern "C" {
 #endif //_cplusplus
 
-void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path);
+void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32);
 int save_bitmap_24(Bmp24_Img_Info *img_info, void *img_data, char *img_path);
 
 #ifdef __cplusplus
