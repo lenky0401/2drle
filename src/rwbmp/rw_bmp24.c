@@ -5,7 +5,7 @@
 #include "../common.h"
 #include "rw_bmp24.h"
 
-void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32)
+uint8_t* read_bitmap24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32)
 {
     FILE* fp;
     fopen_s(&fp, img_path, "rb");
@@ -29,7 +29,7 @@ void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32)
     assert(img_info->bi.biSizeImage == (stride * img_info->bi.biHeight));
 
     size_t data_size = img_info->bi.biSizeImage;
-    char *img_data = (char *)malloc(data_size);
+    uint8_t *img_data = (uint8_t *)malloc(data_size);
     if (img_data == NULL) {
         log("ÉêÇëÄÚ´æÊ§°Ü:%zu", data_size);
         return NULL;
@@ -47,14 +47,15 @@ void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32)
     }
 
     int stride32 = img_info->bi.biWidth * 4;
-    char *img_data32 = (char *)malloc(stride32 * img_info->bi.biHeight);
+    uint8_t *img_data32 = (uint8_t *)malloc(stride32 * img_info->bi.biHeight);
     if (img_data32 == NULL) {
-        log("ÉêÇëÄÚ´æÊ§°Ü:%zu", stride32 * img_info->bi.biHeight);
+        log("ÉêÇëÄÚ´æÊ§°Ü:%u", stride32 * img_info->bi.biHeight);
         return NULL;
     }
 
     for (int i = 0; i < img_info->bi.biHeight; i++) {
         for (int j = 0; j < img_info->bi.biWidth; j++) {
+            /*
             char *pix24 = i * stride + j * 3;
             char *pix32 = i * stride32 + j * 4;
 
@@ -62,6 +63,7 @@ void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32)
             pix32[1] = pix24[1];
             pix32[2] = pix24[2];
             pix32[3] = 255;
+            */
         }
     }
 
@@ -69,7 +71,7 @@ void* read_bitmap_24(Bmp24_Img_Info *img_info, char *img_path, BOOL convert32)
     return img_data32;
 }
 
-int save_bitmap_24(Bmp24_Img_Info *img_info, void *img_data, char *img_path)
+uint32_t save_bitmap24(Bmp24_Img_Info *img_info, void *img_data, char *img_path)
 {
     FILE* fpw;
     fopen_s(&fpw, img_path, "wb");

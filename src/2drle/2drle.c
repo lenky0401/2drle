@@ -89,6 +89,53 @@ void morton_2drle_encode(Bmp24_Img_Info *img_info, void *img_data, char *outpath
     fclose(outFile);
 }
 
+
+void rowcol_1drle_encode(Bmp24_Img_Info *img_info, void *img_data, char *outpath)
+{
+    int rows = img_info->bi.biHeight;
+    int cols = img_info->bi.biWidth;
+    assert(rows > 0);
+    assert(cols > 0);
+
+    char *pData = (char *)img_data;
+
+    FILE *outFile;
+    fopen_s(&outFile, outpath, "wb");
+    if (outFile == NULL) {
+        log("打开文件失败:%s", outpath);
+        return;
+    }
+
+    //记录行数和列数
+    fwrite(&rows, sizeof(rows), 1, outFile);
+    fwrite(&cols, sizeof(cols), 1, outFile);
+
+    uint32_t index = 0;
+    char value = pData[0];
+
+    //记录第0个值
+    fwrite(&index, sizeof(index), 1, outFile);
+    fwrite(&value, sizeof(value), 1, outFile);
+
+    int i, j;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            char newValue = pData[i*cols + j];
+            if (newValue == value) {
+                continue;
+            }
+
+            //index = k;
+            value = newValue;
+
+            fwrite(&index, sizeof(index), 1, outFile);
+            fwrite(&value, sizeof(value), 1, outFile);
+        }
+    }
+
+    fclose(outFile);
+}
+
 void morton_2drle_decode(Bmp24_Img_Info *img_info, char *inpath, char *outpath)
 {
     FILE* fp;
@@ -115,7 +162,7 @@ void morton_2drle_decode(Bmp24_Img_Info *img_info, char *inpath, char *outpath)
     while (fread(&newIndex, sizeof(newIndex), 1, fp) && fread(&newValue, sizeof(newValue), 1, fp))
     {
 
-        // 将Md值在[index,newIndex)范围内的像素灰度值设为value*/
+        //将morton_code值在[index,newIndex)范围内的像素灰度值设为value
         for (int k = index; k < (int)newIndex; k++)
         {
             morton_code_2_ij(k, &i, &j);
@@ -125,7 +172,7 @@ void morton_2drle_decode(Bmp24_Img_Info *img_info, char *inpath, char *outpath)
         index = newIndex; value = newValue;
     } while (TRUE);
 
-    /*将Md值在[index,min2PowSq)范围内的像素灰度值设为value*/
+    //将Md值在[index,min2PowSq)范围内的像素灰度值设为value
     for (int k = index; k <= ij_2_morton_code(rows - 1, cols - 1); k++)
     {
         morton_code_2_ij(k, &i, &j);
@@ -140,7 +187,7 @@ void morton_2drle_test()
 {
     Bmp24_Img_Info img;
     char *path = "testimg\\test3.bmp";
-    char *img_data = (char *)read_bitmap_24(&img, path, FALSE);
+    char *img_data = (char *)read_bitmap24(&img, path, FALSE);
     assert(img_data);
 
     char *outpath = "testimg\\test3_2drle_encode.data";
